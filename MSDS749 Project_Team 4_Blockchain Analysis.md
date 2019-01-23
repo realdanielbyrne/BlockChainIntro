@@ -23,6 +23,9 @@ economy.14 By combining peer-to-peer networks, cryptographic algorithms, distrib
 
 REFERENCES
 [1]:	https://blockgeeks.com/guides/what-is-blockchain-technology/ "Judd Bagley (2018 ,  Sep . ).  What is Blockchain Technology? A Step-by-Step Guide For Beginners. Blockgeeks." 
-[2]:	https://medium.com/blockchain-review/how-does-the-blockchain-work-for-dummies-explained-simply-9f94d386e093 "Collin Thompson (2016 Oct.). How does the Blockchain Work? (Part 1). The Blockchain Review." 
+[2]:    https://medium.com/blockchain-review/how-does-the-blockchain-work-for-dummies-explained-simply-9f94d386e093 "Collin Thompson (2016 Oct.). How does the Blockchain Work? (Part 1). The Blockchain Review." 
 [3]:	https://blockchainhub.net/blockchains-and-distributed-ledger-technologies-in-general/ "Collin Thompson (2016 Oct.). Blockchains & Distributed Ledger Technologies. BlockchainHub."
 
+[4]:    https://bitcoin.org/bitcoin.pdf "Nakamoto, Satoshi (31 October 2008). 'Bitcoin: A Peer-to-Peer Electronic Cash System (PDF).' Retrieved 20 December 2012."
+
+[5]:    https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2580664 "Decentralized Blockchain Technology and the Rise of Lex Cryptographia"
