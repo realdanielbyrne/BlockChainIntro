@@ -76,7 +76,122 @@ Privacy in communication was a primary concern of the movement, but equally impo
 
 From this primordial stew of technologist, university researchers, cryptographers, a love of privacy in communication and in financial transactions, and a general mistrust of central authorities an anonymous,short (9 pages), but groundbreaking paper, was mailed to the Cypherpunk mailing list in 2008[4] by Satoshi Nakamoto, fittingly an alias, describing an electronic currency,nBitcoin, based upon cryptographic principals akin to asymmertric encryption, one-way functions, but in reverse.  While Bitcoin was not the first digital currency created, it was the first to solve the problem of double spending and the first to do it without the need for a central authority regultating the transaction.
 
-REFERENCES
+## BLOCKCHAIN TECHNOLOGY
+
+Blockchain technology is probably the best invention since the internet itself. It allows value exchange without the need for trust or for a central authority. For the first time, blockchain enable a way for one Internet user to transfer a unique piece of digital property to another Internet user, such that the transfer is guaranteed to be safe and secure, everyone knows that the transfer has taken place, and nobody can challenge the legitimacy of the transfer. The consequences of this breakthrough are hard to overstate.
+Blockchain is a distributed database or a Ledger (as used in Cryptocurrencies) containing all the records linking the history to the very initial record, that can be used in various applications like Currency, Supply Chain, Identity Management, Assets Tracking etc. Distributed because it is not authored or controlled by a centralized entity like a Financial Institution (Banks) or Government, rather, each participating node has a copy of the most updated Ledger to prevent any tampering of data in the Ledger.
+The Ledger is divided into Blocks of equal sizes and each block is connected to its previous block using the Cryptographic Hash of the Data in Previous Block, so if someone tries to change the value of a record in any Block, all the Blocks ahead of it are invalidated, thus providing an indication that the data has been tampered.
+
+Here are the steps involved:
+
+1. On a Blockchain, the transactions are happening between different nodes on the network, all the time. In our example, Alice initiate a transaction to Bob.
+2. Alice�s wallet encrypt the content with Bob�s public key and signs the transaction with her private key. 
+3. The transaction will not be added to the block database (ledger) right away, it is added to pending transaction pool.
+4. Special nodes, called Miners, pick up several transactions (size varies depending on application, up to 1MB in size for Bitcoin network).
+5. Miners first validate all the transactions to see that all the transactions are fair and valid and does not contain any fraudulent transaction with problems like enough resources/fund in Alice wallet, duplicate transaction etc. (Validation rules are application specific.) These validation rules are called transactional consensus.
+6. Once the transactions are validated, the miners create a Block of the transactions he picked. This Block contains a sequential ID, the Transactions picked by the miner, SHA256 Hash of all the values and Hash of the Previous Block.
+7. The Blockchain Consensus requires the miners to resolve a computational-intense hard mathematical problem to sign the generated block before broadcasting it to the network.
+8. The other miners validate the solution of the problem and if validated accepts the block.
+9. Once over 50% of the Miners on the blockchain network accepts the block, the block is added to the ledger (block database) and distributed to all nodes on the network.
+10. Bob finally sees $50 in his charity donation wallet.
+11. The winning miner who created the accepted block is awarded with transaction fee.  
+
+## BLOCKCHAIN APPLICATIONS
+
+In the year 2017, Blockchain became the second most popular search word on Gartner's website, and Distributed Ledger Technology (DLT) will continue to gain utmost significance across many industries.
+Blockchain will help address several modern-day security concerns, including issues with contracts, identity, and fraud management. Blockchain-based lists will allow online retailers and financial organizations to conveniently vet their customers and fight against fraudulent activities.
+The following are top 20 real-world blockchain applications across the industry according to CoinSwitch desk.
+
+Cybersecurity:
+
+- Guardtime - a keyless signature which is currently used to secure the health records of one million Estonian citizens.
+- REMME - a decentralized authentication system which aims to replace logins and passwords with SSL certificates stored on a blockchain.
+
+Healthcare:
+
+- Gem - working with the Centre for Disease Control(CDC) to put disease outbreak data onto a blockchain.
+- Simply Vital Health - ConnectingCare which tracks the health progress of patients, and Health Nexus, which aims to provide decentralized blockchain patient records.
+
+Banking and Financial:
+
+- Barclays - Barclays has launched a number of technological initiatives which involves tracking financial transactions, combating fraud and compliance.
+- Augur - Allows the creation of blockchain-based predictions markets for the trading of derivatives and other financial instruments in a decentralized ecosystem.
+
+Manufacturing: 
+
+- Provenance - provide a blockchain-based provenance record of transparency within supply chains.
+- TransActivgrid - allowing members to locally produce and sell energy, with the goal of reducing costs involved in energy distribution.
+
+Government:
+
+- Dubai - 30 government departments formed a committee dedicated to investigating opportunities across health records, shipping, business registration and preventing the spread of conflict diamonds.
+- South Korea - Samsung is creating blockchain solutions for the South Korean government which will be put into use in public safety and transport applications.
+
+Charity:
+- Bitgive - aims at providing greater transparency to charity donations and reduce operation overhead.
+
+Retail: 
+
+- OpenBazaar - a decentralized market where no middleman is involved in trading of goods and services.
+- Loyyal - universal blockchain-based framework which aims at allowing customers to combine trade and loyalty reward points in newer ways so that retailers can offer more sophisticated loyalty packages.
+
+Real Estate:
+
+- Ubiquity - a blockchain-driven system for tracking the complicated legal process which creates friction and expenses in real estate transfer.
+
+Transportation and Tourism:
+
+- Arcade City - An application which aims at beating Uber at their own game by moving ride sharing and car hiring onto the blockchain.
+- Webjet - an online travel portal, which is developing a blockchain solution to allow stock of empty hotel rooms to be efficiently tracked and traded.
+
+Media:
+
+- Kodak - developing a blockchain system for tracking intellectual property rights and payments to photographers.
+- Ujo Music - record and track royalties for musicians and allows them to create a record of ownership of their work.
+
+Smart Contracts:
+
+- Slock - an Ethereum based internet-of-things (IoT) platform, which is using this application so that people can rent anything from bicycles to apartments by unlocking a smart lock after both parties agreed on the terms of the contract.
+
+## BLOCKCHAIN DATABASE
+
+Blockchain databases are different from traditional centralized databases. They are distributed in nature. For a blockchain database, each participant maintains, calculates and updates new entries into the database. Blockchain databases consist of several decentralized nodes. Each node participates in administration: all nodes verify new additions to the blockchain. For an addition to be made to the blockchain, the majorities of nodes must reach consensus. This consensus mechanism guarantees the security of the network, making it difficult to tamper with.
+
+Blockchain databases are able to keep information that is relevant now, but also all the information that has come before. Blockchain technology can create databases that have histories of themselves. They grow like ever-expanding archives of their own history while also providing a real-time portrait.
+The choice of database for blockchain platform or application is somewhat confusing. Some consider blockchain technology is another category of database like relational and document storage. The current blockchain application or platform are built on top of semi-custom database. 
+
+For example, Ethereum is using Leveldb, Leveldb was originally designed by Google to be a disk backed memory database. As long as most of it can fit into memory, it performs very well, but as more and more disk access is required, performance can degrade. Facebook's RocksDB tries to address some of these issues with multi-threaded background compaction, but it�s still a fairly new thing and being in C makes portability hard. Parity is using RocksDB as it's database. The reason for choosing RocksDB is performance. Faster than LevelDB in their tests. Lately though they have hit some performance issues and a lot of corruption issues with RocksDB and are developing a proprietary DB to better suit Parity, the ParityDB.
+
+So, what are the characteristics of a database that is suited for blockchain technology application development?
+
+### Distributed
+
+It is designed to be distributed and synchronized across networks, which makes it ideal for multi-organizational business networks. It also encourages organizations to come out from behind their firewalls and share data.
+
+### Permanent Record
+
+All confirmed transactions are stored as permanent record, you can�t just do whatever you want to the data. The types of transactions one can carry out are agreed between participants in advance and stored in the blockchain as �smart contracts,� which helps give confidence that everyone is playing by the rules.
+
+### Majority Rules
+
+Before one can execute a transaction, there must be agreement between all relevant parties that the transaction is valid. For example, if you�re registering the sale of a cow, that cow must belong to you or you won�t get agreement. This process is known as �consensus� and it helps keep inaccurate or potentially fraudulent transactions out of the database.
+
+### Mutual Trust
+
+Immutability of the data. Once you have agreed on a transaction and recorded it, it can never be changed. You can subsequently record another transaction about that asset to change its state, but you can never hide the original transaction. This gives the idea of provenance of assets, which means that for any asset you can tell where it is, where it�s been and what has happened throughout its life without any central authority.
+
+Taken together, these four characteristics give organizations a high degree of trust in the data and the business network. That level of trust makes blockchain important for the next generation of business applications.
+
+Next, we will explore one of the rising popularity database, BigChain DB who is adapting itself towards supporting  blockchain application. 
+
+## BIGCHAIN DATABASE
+
+BigchainDB is software that has blockchain properties (e.g. decentralization, immutability, owner-controlled assets) and database properties (e.g. high transaction rate, low latency, indexing & querying of structured data). It was released open source in February 2016 and has been improved continuously ever since. BigchainDB version 2.0 makes significant improvements over previous versions. In particular, it is now Byzantine fault tolerant (BFT), so up to a third of the nodes can fail in any way, and the system will continue to agree on how to proceed. BigchainDB 2.0 is also production-ready for many use cases.
+
+## BLOCKCHAIN OUTLOOK
+
+## REFERENCES
+
 [1]: Judd Bagley (2018 ,  Sep . ).  What is Blockchain Technology? A Step-by-Step Guide For Beginners. Blockgeeks. [Online]. Available: https://blockgeeks.com/guides/what-is-blockchain-technology/
 [2]: Collin Thompson (2016 Oct.). How does the Blockchain Work? (Part 1). The Blockchain Review. [Online]. Available: -https://medium.com/blockchain-review/how-does-the-blockchain-work-for-dummies-explained-simply-9f94d386e093 
 [3]: Collin Thompson (2016 Oct.). Blockchains & Distributed Ledger Technologies. BlockchainHub. [Online]. Available: https://blockchainhub.net/blockchains-and-distributed-ledger-technologies-in-general/ 
