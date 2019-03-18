@@ -1,0 +1,48 @@
+Connect to each EC2:
+
+ssh -i "/Users/benjaminwilke/.ssh/MyFirstKeyPair.pem" ubuntu@ec2-34-213-113-185.us-west-2.compute.amazonaws.com
+ssh -i "/Users/benjaminwilke/.ssh/MyFirstKeyPair.pem" ubuntu@ec2-54-186-91-238.us-west-2.compute.amazonaws.com
+ssh -i "/Users/benjaminwilke/.ssh/MyFirstKeyPair.pem" ubuntu@ec2-54-201-8-176.us-west-2.compute.amazonaws.com
+ssh -i "/Users/benjaminwilke/.ssh/MyFirstKeyPair.pem" ubuntu@ec2-54-188-123-47.us-west-2.compute.amazonaws.com
+ssh -i "/Users/benjaminwilke/.ssh/MyFirstKeyPair.pem" ubuntu@ec2-54-213-146-105.us-west-2.compute.amazonaws.com
+
+Gather information from ~/.tendermint/config/priv_validator.json and Tendermint Node ID
+
+hostname Node 1: ec2-34-213-113-185.us-west-2.compute.amazonaws.com
+pub_key.value Node 1: cZpEwu/vxox+uEuTAh2cenSf81wlFTUr4OW7XQIksFs=
+node_id Node 1: 1c59225094dd228ecedfbe964bbc36197cd94156
+
+hostname Node 2: ec2-54-186-91-238.us-west-2.compute.amazonaws.com
+pub_key.value Node 2: gT72jycVez7L3yhe0VkZ3+bx36EhJJotMV3vOPmsLh4=
+node_id Node 2: ec2ae7b4e82035b1bb157d05f760caa0f28c921c
+
+hostname Node 3: ec2-54-201-8-176.us-west-2.compute.amazonaws.com
+pub_key.value Node 3: UuP9Yl/PnycTKwDzKzfw5nQvT/0RrXTi50nakc2RiIc=
+node_id Node 3: 12adc97bdbc17505f62ec636cbdf8a26f0103b82
+
+hostname Node 4: ec2-54-188-123-47.us-west-2.compute.amazonaws.com
+pub_key.value Node 4: EjDPaPoSSdeascusuQEdiSi/E1FM1Cw5LGH9CggBr9E=
+node_id Node 4: f43b63c5561efdf05db73cbe5113e3ae8920c222
+
+hostname Node 5: ec2-54-213-146-105.us-west-2.compute.amazonaws.com
+pub_key.value Node 5: TgVaswL688PA9IBe8KT5UvVPFmckgwXe5qCUwNErSXw=
+node_id Node 5: d87629d8d1f5f64ae72292dd76ae5a26a4cb3eef
+
+Copy genesis.json to all Members (nodes) on EC2:
+
+scp -i "/Users/benjaminwilke/.ssh/MyFirstKeyPair.pem" /Users/benjaminwilke/genesis.json ubuntu@ec2-34-213-113-185.us-west-2.compute.amazonaws.com:genesis.json
+scp -i "/Users/benjaminwilke/.ssh/MyFirstKeyPair.pem" /Users/benjaminwilke/genesis.json ubuntu@ec2-54-186-91-238.us-west-2.compute.amazonaws.com:genesis.json
+scp -i "/Users/benjaminwilke/.ssh/MyFirstKeyPair.pem" /Users/benjaminwilke/genesis.json ubuntu@ec2-54-201-8-176.us-west-2.compute.amazonaws.com:genesis.json
+scp -i "/Users/benjaminwilke/.ssh/MyFirstKeyPair.pem" /Users/benjaminwilke/genesis.json ubuntu@ec2-54-188-123-47.us-west-2.compute.amazonaws.com:genesis.json
+scp -i "/Users/benjaminwilke/.ssh/MyFirstKeyPair.pem" /Users/benjaminwilke/genesis.json ubuntu@ec2-54-213-146-105.us-west-2.compute.amazonaws.com:genesis.json
+
+Move genesis.json from root to ~/.tendermint/config/genesis.json
+
+mv /home/ubuntu/genesis.json ~/.tendermint/config/
+
+Create persistent_peers string
+
+"1c59225094dd228ecedfbe964bbc36197cd94156@ec2-34-213-113-185.us-west-2.compute.amazonaws.com:26656,ec2ae7b4e82035b1bb157d05f760caa0f28c921c@ec2-54-186-91-238.us-west-2.compute.amazonaws.com:26656,12adc97bdbc17505f62ec636cbdf8a26f0103b82@ec2-54-201-8-176.us-west-2.compute.amazonaws.com:26656,f43b63c5561efdf05db73cbe5113e3ae8920c222@ec2-54-188-123-47.us-west-2.compute.amazonaws.com:26656,d87629d8d1f5f64ae72292dd76ae5a26a4cb3eef@ec2-54-213-146-105.us-west-2.compute.amazonaws.com:26656"
+
+
+
