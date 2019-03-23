@@ -1,11 +1,13 @@
 ---
 title: "Blockchain Analysis"
-author: "Yumei Bennett, Graduate Student, Southern Methodist University, Daniel Byrne, Graduate Student, Southern Methodist University, Benjamin Wilke, Graduate Student, Southern Methodist University, Brian Coari, Graduate Student, Southern Methodist University"
+author: Yumei Bennett, Graduate Student, Southern Methodist University, Daniel Byrne,
+  Graduate Student, Southern Methodist University, Benjamin Wilke, Graduate Student,
+  Southern Methodist University, Brian Coari, Graduate Student, Southern Methodist
+  University
 date: "March 21, 2019"
 output:
-  word_document: default
-  html_document:
-    keep_md: true
+  word_document: 
+    keep_md: TRUE
 ---
 
 ## Abstract
@@ -18,15 +20,9 @@ output:
 
 Blockchain is, at its heart, simply an immutable transaction log, often referred to as a [digital ledger][1], which employs cryptographic hashing techniques in a distributed fashion to create a one-way transaction register which memorializes the characteristics of an interactions between parties and secures those actions with completed proofs of work and a distributed, decentralized, and public log.  It was originally designed as a means to facilitate commerce on the Internet without the need for a trusted intermediary such as a bank overseeing and injecting itself into transactions.  Blockchain, due to its versatility and security, has been leveraged into a whole host of other applications for which trust, privacy, and security are necessities.
 
-A Blockchain transaction starts with an owner of a digital coin wishing to spend that coin on something else. That owner's equity stake in digital coins is recorded as a transaction in a block secured with his public key, a hash, and the private key of the person he bought his equity stake from.  When the owner wants to spend his coin, he transfers the coin by digitally signing a hash of the previous transaction with his private key and the public key of the next owner and adding these to the end of the coin. The payee can then verify the signatures to verify the chain of ownership. These one-way cryptographic hashes are computationally impractical to reverse, thus this interaction secures the ownership chain; however, it doesn't provide a means to prevent a bad actor from duplicating (double spending) or reversing a transaction.  
-
-The traditional means of ensuring the authenticity of a one way transactions is to use a trusted third party such as a bank or some governing body overseeing the transaction.  While this works, it relies on the goodness of the intermediary and a measure of blind faith.  Unfortunately, the intermediary institution might have other loyalties, rogue employees, or an entitlement mentality. Thus, this uncertainty manifests itself as an increase in the cost of performing a transaction. It also and has an inherent and an unfortunate but accepted level of grift and risk.
-
-To get around the need for a central authority, the author(s) of [Bitcoin][17], the first Blockchain technology, employ a proof of work concept in which nodes calculate a difficult secure hash from the previous block's hash, a nonce, and a collection of recent transactions. Every new transaction added to a chain of other transactions each of which are inextricably linked to the block that was added before it in the list.  To modify a past block, an attacker would have to redo the proof-of-work of the block and all blocks after it and then catch up with and surpass the work of the honest nodes.  
-
 This paper will explore the distributed ledger technology known as Blockchain. In this paper we will cover what Blockchain is, the theories and technologies behind Blockchain, its strengths and shortcomings, as well as its current and possible future uses. We will explain the different types of [Blockchains][3] (public, private, and federated), and the pros and cons of each. This paper will conclude with a description of an emerging application of Blockchain, [BigchainDB][16],which is a NoSQL database augmented with the core strengths of Blockchain, its decentralized nature and its immutability.
 
-## Related Work
+## RELATED WORK
 
 ### Early Cryptography
 
@@ -46,19 +42,19 @@ Substitution blocks, at the time a new feature in cryptography are a cryptograph
 
 During the DES public comment period, parts of the proposed standard were deemed classified, and thus could not be vetted by researchers in the field. Also, it was made known that the NIST enlisted the help of the NSA in modifying the initial IBM proposal, and that made people a little bit wary.
 
-Due to the partially classified nature of the publication, the involvement of the NSA, and the introduction of heretofore unknown feature in the design called S-boxes, the initial specification was immediately met with wide skepticism in the academic realm.  Whitefield Diffie and Martin Hellman, prominent cryptography researchers at Stanford University, panned the standard in an "Exhaustive Cryptanalysis of the NBS Data Encryption Standard" [11]. Primarily their concern was that the 56-bit key proposed by the standard was too short to be secure.  
+Due to the partially classified nature of the publication, the involvement of the NSA, and the introduction of heretofore unknown feature in the design called S-boxes, the initial specification was immediately met with wide skepticism in the academic realm.  Whitefield Diffie and Martin Hellman, prominent cryptography researchers at Stanford University, panned the standard in an ["Exhaustive Cryptanalysis of the NBS Data Encryption Standard"][11]. Primarily their concern was that the 56-bit key proposed by the standard was too short to be secure.  
 
 There was also public skepticism that the classified implementation of the S-boxes, now known as substitution boxes, in the design represented some sort of backdoor introduced by the NSA to allow it to decrypt secure communications.  It wasn't until years later when S-boxes were rediscovered, that it was determined that the inclusion of S-boxes in the DES standard made it more secure against differential cryptanalysis.
 
-However, the NSA did push for a reduction of the key size from the originally proposed 64bits to 48bits.  IBM pushed back and the IBM and the NSA eventually compromised on a 56-bit key.  However, this weakened the standard so much, according to Diffie and Hellman, that state actors and other organizations with deep pockets could theoretically build a computer to crack DES encryption through brute force.  In Diffie and Hellman's early public shaming of DES they made this point in their opening introduction. [4]
+However, the NSA did push for a reduction of the key size from the originally proposed 64bits to 48bits.  IBM pushed back and the IBM and the NSA eventually compromised on a 56-bit key.  However, this weakened the standard so much, according to Diffie and Hellman, that state actors and other organizations with deep pockets could theoretically build a computer to crack DES encryption through brute force. In Diffie and Hellman's early public shaming of DES they made this point in their opening introduction. [4]
 
 Fittingly, in 1998, the Electronic Frontier Foundation built a $200,000 machine, well within the financial means of companies and especially governments, that cracked DES in a few days. The project was headed by John Gilmore, a founder of the Cypherpunk movement and a cryptographic academic and activist. The goal of the project was to demonstrate that DES was insecure, and that the US government had been telling deliberate lies about the security of DES for some time. [5]
 
 ### Public Key Cryptography
 
-Diffie and Hellman and went on to advocate for an asymmetric encryption algorithm with greater complexity of the 56-bit DES and the ability to agree upon a shared key over an unsecure channel.  This process became known as public key encryption and they went on to eventually patent this concept with Ralph C. Merkle in 1977.  The Diffie-Hellman Key exchange protocol is what is can become to be named. [11,12]  
+Diffie and Hellman and went on to advocate for an asymmetric encryption algorithm with greater complexity of the 56-bit DES and the ability to agree upon a shared key over an unsecure channel.  This process became known as public key encryption and they went on to eventually patent this concept with Ralph C. Merkle in 1977. [The Diffie-Hellman Key exchange protocol is what is can become to be named.][11]  
 
-Interestingly though, the concept was actually conceptualized and secretly described in a now unclassified paper by James H. Ellis, Clifford Cocks, and Malcolm J. Williamson of GCHQ, the British signals intelligence agency, 7 years earlier in 1969. [13]
+Interestingly though, the concept was actually conceptualized and secretly described in a now unclassified paper by [James H. Ellis, Clifford Cocks, and Malcolm J. Williamson of GCHQ, the British signals intelligence agency,][13] in 1969.
   
 The private key must remain secure, but the public key can be widely disseminated without fear that the encrypted data will be compromised. The security of this cryptographic system is hinged on the sheer complexity and time it would take to factor the product of the two very large prime keys with current technology.
 
@@ -82,30 +78,45 @@ Privacy in communication was a primary concern of the movement, but equally impo
   
   "When I purchase a magazine at a store and hand cash to the clerk, there is no need to know who I am. When I ask my electronic mail provider to send and receive messages, my provider need not know to whom I am speaking or what I am saying or what others are saying to me; my provider only need know how to get the message there and how much I owe them in fees. When my identity is revealed by the underlying mechanism of the transaction, I have no privacy. I cannot here selectively reveal myself; I must always reveal myself." [10]
 
-### The Birth of Bitcoin
+### BITCOIN
 
 From this primordial stew of technologist, university researchers, cryptographers, a love of privacy in communication and in financial transactions, and a general mistrust of central authorities an anonymous,short (9 pages), but groundbreaking paper, was mailed to the Cypherpunk mailing list in 2008[4] by Satoshi Nakamoto, fittingly an alias, describing an electronic currency,nBitcoin, based upon cryptographic principals akin to asymmetric encryption, one-way functions, but in reverse.  While Bitcoin was not the first digital currency created, it was the first to solve the problem of double spending and the first to do it without the need for a central authority regulating the transaction.
 
 ## BLOCKCHAIN TECHNOLOGY
 
-One of Blockchain's core strengths is its ability to allow for a verifiable transaction to take place without the need for central database or oversight authority. Traditional transactions requires a central authorityThe consequences of this breakthrough are hard to overstate.
+One of Blockchain's core strengths is its ability to allow for a verifiable transaction to take place without the need for central database or oversight authority. Traditional transactions requires a central authority overseeing or simply recording the transaction to prevent fraud and to provide a verifiable record of was has transpired. Blockchain supplants this requirement with ["cryptographic proof instead of trust, allowing any two willing parties to transact directly with each other without the need for a trusted third party"][17]. The consequences of this breakthrough are hard to overstate.
 
-Blockchain is a distributed database or a Ledger (as used in Cryptocurrencies) containing all the records linking the history to the very initial record, that can be used in applications as diverse as e-commerce, supply chain management, identity management, asset tracking, and voting systems. Distributed because it is not authored or controlled by a centralized entity like a Financial Institution (Banks) or Government, rather, each participating node has a copy of the most updated Ledger to prevent any tampering of data in the Ledger.
-The Ledger is divided into Blocks of equal sizes and each block is connected to its previous block using the Cryptographic Hash of the Data in Previous Block, so if someone tries to change the value of a record in any Block, all the Blocks ahead of it are invalidated, thus providing an indication that the data has been tampered.
+A Blockchain transaction begins with two willing parties to a transaction. The payor's equity stake, or coin, is recorded as a transaction in a chain of cryptographic blocks secured with his public key, a hash, and the private key of the person he bought his equity stake from and embedded in a "proof of work" block.  The payer then digitally signs a hash of this prior transaction and the public key of the next owner with his private key and then adds this to the end of the coin. The payee can then verify the signatures to verify the chain of ownership. This one-way cryptographic hash is computationally impractical to reverse, and thus this interaction secures the ownership chain; however, it doesn't provide a means to prevent a bad actor from duplicating (double spending) or reversing a transaction.  
+
+The traditional means of ensuring the authenticity of a one-way transaction and to eliminate the problem of double spending is to use a trusted third party such as a bank or some governing body overseeing the transaction.  While this works, it relies on the goodness of the intermediary and a measure of blind faith.  Unfortunately, the intermediary might have other loyalties, an institution could be manned by rogue employees, or the entity could be inundated with entitlement mentality. Thus, this uncertainty manifests itself as an increase in the cost of performing a transaction. It also and has an inherent and an unfortunate but accepted level of grift and risk associated with it.
+
+To get around the need for a central authority, the author(s) of [Bitcoin][17], the first Blockchain technology, employ a proof of work concept in which honest "miner" nodes compete with one another to search for the solution to a difficult secure hash.  When a transaction happens, it is added to a pool of other recent transactions.  These transactions are picked up by special nodes in a peer to peer distributed network called miners.  These miner nodes then search for a specific result to a complex hash comprised from the previous block's hash, a nonce, and a collection of recent transactions that begins with a specific number of zeros bits.  The complexity in finding this hash increases exponentially with the number of zeros specified.
+
+When the hash is found, the miner who found it, adds that block to the end of the chain of blocks and widely publishes it to the network.  Other miner nodes working on that block will accept the block if all transactions in the block are valid and not already spent.  They signal their approval by then stopping trying to find the current block, since it has already been found, and proceed onto the next block using the recently accepted block's hash as the previous block.  
+
+The Ledger is divided into Blocks of equal sizes and each block is connected to its previous block using the cryptographic hash of the data in previous block.  By convention, the longest valid chain is always considered to be the source of truth.  Shorter chains or chains with the same length but with a later timestamp, or chains with unverified blocks are discarded in favor the earliest and longest verifiable chain.
+
+Every new block added to a chain of other blocks represents a non-trivial amount of work measured in electricity and time.  If someone tries to change the value of a record in any block, all the blocks ahead of it are invalidated, thus providing an indication that the data has been tampered.  To modify a past block, an attacker would have to redo the proof-of-work of a block and all blocks after it to catch up with and surpass the work of the honest nodes constantly and continuously finding new blocks.  Assuming that the majority of computing power lies within the pool of honest nodes. The probability of this happening becomes vanishingly small. Conversely, if dishonest nodes do overtake honest nodes in the network, the value of the digital assets would plummet due to the inherent loss of trust, thus negating the spoils of the heist.
+
+Since the ledger is distributed amongst every participant in the network, both miners and transaction participants, and not controlled by a central authority, publishing a fake transaction log again is limited by the ability of the bad actor to completely redo the proofs-of-work in the chain after its dishonest entry.  Ironically then security is provided by publicity.
+
+To incentivize honest nodes to continuously find new blocks and to process transactions to stay ahead of dishonest nodes attempts at rewriting history, miners finding a new block are awarded with a new coin. By convention this coin is recorded as the first transaction in a new block.
 
 Here are the steps involved:
 
-1. On a Blockchain, the transactions are happening between different nodes on the network, all the time. In our example, Alice initiate a transaction to Bob.
-2. Alice�s wallet encrypt the content with Bob�s public key and signs the transaction with her private key.
-3. The transaction will not be added to the block database (ledger) right away, it is added to pending transaction pool.
-4. Special nodes, called Miners, pick up several transactions (size varies depending on application, up to 1MB in size for Bitcoin network).
+1. On a Blockchain, transactions are happening between different nodes on the network all the time. In our example, Alice initiate a transaction to Bob.
+2. Alice's wallet encrypt her coin with Bob's public key and signs the transaction with her private key.
+3. The transaction will not be added to the Blockchain right away.  Instead it is added to pending transaction pool.
+4. Special nodes, called miners, pick up several transactions from the pool.
 5. Miners first validate all the transactions to see that all the transactions are fair and valid and does not contain any fraudulent transaction with problems like enough resources/fund in Alice wallet, duplicate transaction etc. (Validation rules are application specific.) These validation rules are called transactional consensus.
-6. Once the transactions are validated, the miners create a Block of the transactions he picked. This Block contains a sequential ID, the Transactions picked by the miner, SHA256 Hash of all the values and Hash of the Previous Block.
-7. The Blockchain Consensus requires the miners to resolve a computational-intense hard mathematical problem to sign the generated block before broadcasting it to the network.
-8. The other miners validate the solution of the problem and if validated accepts the block.
-9. Once over 50% of the Miners on the blockchain network accepts the block, the block is added to the ledger (block database) and distributed to all nodes on the network.
+6. Once the transactions are validated, the miners will attempt to create a block of the transactions. This block contains a sequential ID, the transactions picked by the miner, a SHA256 Hash of all the values and a hash of the previous block.
+7. The Blockchain Consensus then requires that a miner resolves a computational-intense mathematical problem to sign the generated block before broadcasting it to the network.
+8. The other miners validate the solution of the problem and if validated accept the block.
+9. Once over 50% of the Miners on the blockchain network accepts the block, the block is added to the blockchain and distributed to all nodes on the network.
 10. Bob finally sees $50 in his charity donation wallet.
-11. The winning miner who created the accepted block is awarded with transaction fee.  
+11. The winning miner who created the accepted block is awarded with transaction fee and/or a new coin.  
+
+## BLOCKCHAIN TYPES
 
 ## BLOCKCHAIN APPLICATIONS
 
