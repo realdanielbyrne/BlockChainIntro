@@ -118,6 +118,8 @@ Here are the steps involved:
 
 ## BLOCKCHAIN TYPES
 
+*Need writeup on the types of blockchain.*
+
 ## BLOCKCHAIN APPLICATIONS
 
 In the year 2017, Blockchain became the second most popular search word on Gartner's website, and Distributed Ledger Technology (DLT) will continue to gain utmost significance across many industries.
@@ -175,28 +177,39 @@ Smart Contracts:
 
 - Slock - an Ethereum based internet-of-things (IoT) platform, which is using this application so that people can rent anything from bicycles to apartments by unlocking a smart lock after both parties agreed on the terms of the contract.
 
-## BLOCKCHAIN DATABASE
+## BIGCHAINDB
 
-Blockchain databases are different from traditional centralized databases. They are distributed in nature. For a blockchain database, each participant maintains, calculates and updates new entries into the database. Blockchain databases consist of several decentralized nodes. Each node participates in administration: all nodes verify new additions to the blockchain. For an addition to be made to the blockchain, the majorities of nodes must reach consensus. This consensus mechanism guarantees the security of the network, making it difficult to tamper with.
+BigchainDB is a database that builds upon the strengths of a traditional NoSQL database, MongoDB, and augments it with the strengths of Blockchain.  NoSQL databases are known for their speed, scalability, and flexibility yet susceptible to attacks which aim to change its data.  Blockchain is renowned for its immutability, security, and decentralized control, but is often regarded as slow.  For instance it can sometimes take 10 minutes for a transaction to be committed to a Bitcoin block.  Databases running modern web apps need transaction times in milliseconds. By taking the best from both systems, the offspring of these two wedded technologies is better than its parents.  
 
-Blockchain databases are able to keep information that is relevant now, but also all the information that has come before. Blockchain technology can create databases that have histories of themselves. They grow like ever-expanding archives of their own history while also providing a real-time portrait.
-The choice of database for blockchain platform or application is somewhat confusing. Some consider blockchain technology is another category of database like relational and document storage. The current blockchain application or platform are built on top of semi-custom database. 
+BigchainDB Features :
 
-For example, Ethereum is using Leveldb, Leveldb was originally designed by Google to be a disk backed memory database. As long as most of it can fit into memory, it performs very well, but as more and more disk access is required, performance can degrade. Facebook's RocksDB tries to address some of these issues with multi-threaded background compaction, but it�s still a fairly new thing and being in C makes portability hard. Parity is using RocksDB as it's database. The reason for choosing RocksDB is performance. Faster than LevelDB in their tests. Lately though they have hit some performance issues and a lot of corruption issues with RocksDB and are developing a proprietary DB to better suit Parity, the ParityDB.
+- Decentralized Control
+- Transaction Immutability
+- Standard Queries
+- Fast Commits
+- Byzantine Fault Tolerant
 
-So, what are the characteristics of a database that is suited for blockchain technology application development?
+### Decentralized Control
 
-### Distributed
+BigchainDB is designed to be [decentralized][20] and distributed but yet synchronized, which makes it ideal for multi-organizational business networks, business to business transactions, or simply for ensuring redundancy and high availability. It also encourages organizations to come out from behind their firewalls and to share data.  BigChainDB is built upon a network of peer nodes, all of which contain an exact eventually consistent copy of the same database.  The beauty of this design is that there is no one single point of failure, and no one single point of control.
 
-It is designed to be distributed and synchronized across networks, which makes it ideal for multi-organizational business networks. It also encourages organizations to come out from behind their firewalls and share data.
+Ideally each node in a BigChainDB network is controlled by a different entity.  Even if the nodes are all within the same company, each node is better suited to be controlled by different divisions or different persons in the company.  As in life, the strength of a BigChainDB network comes from its diversity.  The greater the geographic, organizational or other types of diversity present in the network the more fault tolerant it will be.
 
-### Permanent Record
+There’s no node that has can hold a special position in a BigchainDB network. All nodes are equivalent peers running the same version of software and performing the same set of actions.  
 
-All confirmed transactions are stored as permanent record, you can�t just do whatever you want to the data. The types of transactions one can carry out are agreed between participants in advance and stored in the blockchain as �smart contracts,� which helps give confidence that everyone is playing by the rules.
+A collection of nodes in a BigChainDB implementation is called a Consortium.  Consortium rules are set forth for each node to follow as a precondition for being considered a valid node to provide a system of governance.  These rules are flexible and consequently implementation specific.  For instance the rules for a B2B operation might be different than the rules for an asset tracking system.
+
+As in traditional blockchain implementations like Bitcoin, BigchainDB relies on a consensus of the nodes agreeing on a new block,before the new block will be committed to the cryptographic chain.  Therefore, if someone hacked into a node, and tried to commit compromising data to the chain, the other nodes would reject it.  A BigchainDB network can only be impacted if more than 1/3 of the nodes are compromised. If there is at least 2/3 consensus then the network will still allow a commit on the next block.
+
+### Transaction Immutability
+
+Blockchains ledgers are generally considered immutable, unchanging over time.  This is of course a generalization as nothing is impossible, it is just highly unlikely in the cryptographic, probabilistic sense of the word that the data is resistant to change whether that change be intentional through tampering or unintentional through such things as natural disasters or server failures.
+
+Blockchain immutability can be achieved in a number of ways.  Bitcoin uses cryptographic keying and hashing to ensure transactions are properly signed. Then it uses a proof-of-work backed by a monetary incentive to make it very expensive for a hacker to try and surpass the honest nodes.  This method however is slow, too slow to be used by a database, and so BigchainDB does not use it.  
 
 ### Majority Rules
 
-Before one can execute a transaction, there must be agreement between all relevant parties that the transaction is valid. For example, if you�re registering the sale of a cow, that cow must belong to you or you won�t get agreement. This process is known as �consensus� and it helps keep inaccurate or potentially fraudulent transactions out of the database.
+Before one can execute a transaction, there must be agreement between all relevant parties that the transaction is valid. For example, if you're registering the sale of a cow, that cow must belong to you or you won't get agreement. This process is known as �consensus� and it helps keep inaccurate or potentially fraudulent transactions out of the database.
 
 ### Mutual Trust
 
@@ -231,3 +244,6 @@ BigchainDB is software that has blockchain properties (e.g. decentralization, im
 [15]: https://cryptome.org/0001/assange-cpunks.htm "An Archive of Julian Assange's Cypherpunk Mailing List Posts"
 [16]: https://www.bigchaindb.com/ "BigchainDB"
 [17]: http://nakamotostudies.org/wp-content/uploads/2018/03/bitcoin.pdf "Bitcoin: A Peer-to-Peer Electronic Cash System"
+[18]: https://www.bigchaindb.com/whitepaper/bigchaindb-whitepaper.pdf "BigchainDB 2.0, The Blockchain Database"
+[19]: https://www.tendermint.com/docs/introduction/what-is-tendermint.html#tendermint-vs-x "What is Tendermint?"
+[20]: http://docs.bigchaindb.com/en/latest/decentralized.html "How BigchainDB is Decentralized"
