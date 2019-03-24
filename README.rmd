@@ -1,9 +1,8 @@
 ---
 title: "Blockchain Analysis"
-author: Yumei Bennett, Graduate Student, Southern Methodist University, Daniel Byrne,
-  Graduate Student, Southern Methodist University, Benjamin Wilke, Graduate Student,
+author: Daniel Byrne,Graduate Student, Southern Methodist University, Benjamin Wilke, Graduate Student,
   Southern Methodist University, Brian Coari, Graduate Student, Southern Methodist
-  University
+  University, Yumei Bennett, Graduate Student, Southern Methodist University
 date: "March 21, 2019"
 output:
   word_document: 
@@ -187,6 +186,7 @@ BigchainDB Features :
 - Transaction Immutability
 - Standard Queries
 - Fast Commits
+- Sybil Tolerance
 
 ### Decentralized Control
 
@@ -218,6 +218,27 @@ Commits on a network depend on the performance of the internode communication ch
 
 A users on BigchainDB can [query][24] all stored data, all transactions, assets and metadata in a BigchainDB using the standard MongoDB query engine.  Users can even use at least a subset of [SQL][23] with the right tools and drivers.
 
+### Sybil Tolerance
+
+Blockchain networks like Bitcoin allow nodes to freely join the network.  This opens up the possibility that a bad actor could inject enough nodes into the network to control the the balance of computing power, thus controlling the acceptance of valid blocks. This is referred to as a a Sybil attack. Bitcoin limits the possibility of a Sybil attacks by making sure the incentives for honest nodes outweigh the incentives for dishonest ones.  Conversely, in a BigchainDB network, nodes must be added to the network by the governing organization, and so Sybil attacks are a non-issue.
+
+## BigchainDB Tutorial: How to create a digital record of an asset and transfer it to someone else
+
+In this tutorial we cover:
+
+- Creating User Identities
+- Creating Digital Assets
+- Assigning ownership to assets through a transaction
+- Transferring assets between two identities
+- Querying the blockchain for a record of these transactions
+
+We are fast approaching a time as a society in which ownership of an asset like a bicycle or a car, or any other type of asset need not be represented by a signed piece of paper which can be lost stolen or forged.  Ownership can be represented as a digital asset in a immutable cryptographically secured database in much more secure and verifiable manner than traditional means.
+
+Our team has prepared a demonstration of a Simple BigchainDB network hosted on AWS.  In this demonstration we take some liberties and we do not follow the best practice of diversifying the nodes as they are all going to be hosted on the same provider, AWS, and obviously controlled by the same users, us.  However, these are reasonable simplifications for a development or demonstration environment.
+
+Details of the setup process are available in [BigChainDBProject_AWSImplementation.pdf](./BigchainDB/BigChainDBProject_AWSImplementation.pdf).  A IPython Juypter notebook,
+the project documentation is available in [BigChainDBProject_PythonDriver.pdf](./BigChainDBProject_PythonDriver.pdf).
+
 ## REFERENCES
 
 [1]: https://blockgeeks.com/guides/what-is-blockchain-technology/ "Judd Bagley (2018 ,  Sep . ).  What is Blockchain Technology? A Step-by-Step Guide For Beginners. Blockgeeks."
@@ -243,4 +264,8 @@ A users on BigchainDB can [query][24] all stored data, all transactions, assets 
 [21]: https://docs.bigchaindb.com/en/latest/immutable.html "How BigchainDB is Immutable"
 [22]: https://www.bigchaindb.com/developers/guide/key-concepts-of-bigchaindb/ "Key concepts of BigchainDB"
 [23]: https://studio3t.com/knowledge-base/articles/sql-query/ "SQL Query"
-[24]: https://docs.bigchaindb.com/en/latest/query.html
+[24]: https://docs.bigchaindb.com/en/latest/query.html "Querying BigchainDB"
+[25]: https://github.com/bigchaindb/bigchaindb-driver "bigchaindb-driver"
+[26]: https://www.python.org/ "Python"
+[27]: https://www.mongodb.com/download-center "MongoDB"
+[28]: https://mmonit.com/monit/ "Monit"
