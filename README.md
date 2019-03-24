@@ -187,7 +187,6 @@ BigchainDB Features :
 - Transaction Immutability
 - Standard Queries
 - Fast Commits
-- Byzantine Fault Tolerant
 
 ### Decentralized Control
 
@@ -195,35 +194,29 @@ BigchainDB is designed to be [decentralized][20] and distributed but yet synchro
 
 Ideally each node in a BigChainDB network is controlled by a different entity.  Even if the nodes are all within the same company, each node is better suited to be controlled by different divisions or different persons in the company.  As in life, the strength of a BigChainDB network comes from its diversity.  The greater the geographic, organizational or other types of diversity present in the network the more fault tolerant it will be.
 
-There’s no node that has can hold a special position in a BigchainDB network. All nodes are equivalent peers running the same version of software and performing the same set of actions.  
+There’s no supervisor node that has can override or supersede the authority of any other node.. All nodes are equivalent peers running the same version of software and performing the same set of actions.  
 
-A collection of nodes in a BigChainDB implementation is called a Consortium.  Consortium rules are set forth for each node to follow as a precondition for being considered a valid node to provide a system of governance.  These rules are flexible and consequently implementation specific.  For instance the rules for a B2B operation might be different than the rules for an asset tracking system.
+A collection of nodes in a BigChainDB implementation is called a Consortium.  Consortium rules are set forth for each node to follow as a precondition for inclusion in the network, and to provide a tailored system of governance for the network.  These rules are flexible and consequently implementation specific.  For instance the rules for a B2B operation probably  should be different than the rules for an asset tracking system.
 
-As in traditional blockchain implementations like Bitcoin, BigchainDB relies on a consensus of the nodes agreeing on a new block,before the new block will be committed to the cryptographic chain.  Therefore, if someone hacked into a node, and tried to commit compromising data to the chain, the other nodes would reject it.  A BigchainDB network can only be impacted if more than 1/3 of the nodes are compromised. If there is at least 2/3 consensus then the network will still allow a commit on the next block.
+As in traditional blockchain implementations like Bitcoin, BigchainDB relies on a consensus of the nodes agreeing on a new block before the new block will be committed to the cryptographic chain.  Therefore, if someone hacked into a node, and tried to commit compromising data to the chain, the other nodes would reject it.  A BigchainDB network can only be impacted if more than 1/3 of the nodes are compromised. If there is at least 2/3 consensus then the network will still allow a commit on the next block.  This also means that even if 1/3 is affected, the the data would at least be safe from tampering unless 2/3 of the nodes were compromised.
 
 ### Transaction Immutability
 
-Blockchains ledgers are generally considered immutable, unchanging over time.  This is of course a generalization as nothing is impossible, it is just highly unlikely in the cryptographic, probabilistic sense of the word that the data is resistant to change whether that change be intentional through tampering or unintentional through such things as natural disasters or server failures.
+Blockchains ledgers are generally considered immutable, unchanging over time.  This is of course a generalization as nothing is impossible, it is just highly unlikely in the cryptographic, probabilistic sense of the word in blockchain. BigchainDB is immutable in the sense that the data is highly resistant to change whether that change be intentional tampering or unintentional through such things as natural disasters or server failures.
 
-Blockchain immutability can be achieved in a number of ways.  Bitcoin uses cryptographic keying and hashing to ensure transactions are properly signed. Then it uses a proof-of-work backed by a monetary incentive to make it very expensive for a hacker to try and surpass the honest nodes.  This method however is slow, too slow to be used by a database, and so BigchainDB does not use it.  
+Blockchain immutability can be achieved in a number of ways, and some compromises over the original Bitcoin design needed to be made for the specific requirements of a database. For instance Bitcoin Then it uses a proof-of-work backed by a monetary incentive to make it very expensive for a hacker to try and surpass the honest nodes.  This proof of work method however is slow, too slow to be used by a database, and so BigchainDB does not use it.  
 
-### Majority Rules
+[Tendermint][19] is a distributed Byzantine-fault tolerant state machine replication protocol.  It is tolerant to failure of up to 1/3 of the nodes, it is eventually consistent as every node will see the same transaction log, and will compute the same state in isolation. BigchainDB cryptographically signs to verify ownership and hashes to detect tampering each transaction. Then BigchaingDB uses Tendermint to replicate and secure the its cryptographic transaction logs across a peer to peer network.
 
-Before one can execute a transaction, there must be agreement between all relevant parties that the transaction is valid. For example, if you're registering the sale of a cow, that cow must belong to you or you won't get agreement. This process is known as �consensus� and it helps keep inaccurate or potentially fraudulent transactions out of the database.
+BigchainDB only exposes Create and Transfer API methods.  There is no concept of deleting or updating a record.  Even if the underlying MongoDB database in a node were to be modified with MongoDB native Update and Delete commands.  The hashes would then be violated, and the other nodes would not accept the changes.
 
-### Mutual Trust
+### Fast Commits
 
-Immutability of the data. Once you have agreed on a transaction and recorded it, it can never be changed. You can subsequently record another transaction about that asset to change its state, but you can never hide the original transaction. This gives the idea of provenance of assets, which means that for any asset you can tell where it is, where it�s been and what has happened throughout its life without any central authority.
+Commits on a network depend on the performance of the internode communication channels, the speed of the servers, and the number of nodes.  However, commits are not limited to finding a complex proof of work hash.  Thus, while numbers will vary, commits on a Tendermint based network like BigchainDB range from a few milliseconds to a few seconds, which is orders of magnitude faster than Bitcoin.
 
-Taken together, these four characteristics give organizations a high degree of trust in the data and the business network. That level of trust makes blockchain important for the next generation of business applications.
+### Standard Queries
 
-Next, we will explore one of the rising popularity database, BigChain DB who is adapting itself towards supporting  blockchain application. 
-
-## BIGCHAIN DATABASE
-
-BigchainDB is software that has blockchain properties (e.g. decentralization, immutability, owner-controlled assets) and database properties (e.g. high transaction rate, low latency, indexing & querying of structured data). It was released open source in February 2016 and has been improved continuously ever since. BigchainDB version 2.0 makes significant improvements over previous versions. In particular, it is now Byzantine fault tolerant (BFT), so up to a third of the nodes can fail in any way, and the system will continue to agree on how to proceed. BigchainDB 2.0 is also production-ready for many use cases.
-
-## BLOCKCHAIN OUTLOOK
+A users on BigchainDB can [query][24] all stored data, all transactions, assets and metadata in a BigchainDB using the standard MongoDB query engine.  Users can even use at least a subset of [SQL][23] with the right tools and drivers.
 
 ## REFERENCES
 
@@ -245,5 +238,9 @@ BigchainDB is software that has blockchain properties (e.g. decentralization, im
 [16]: https://www.bigchaindb.com/ "BigchainDB"
 [17]: http://nakamotostudies.org/wp-content/uploads/2018/03/bitcoin.pdf "Bitcoin: A Peer-to-Peer Electronic Cash System"
 [18]: https://www.bigchaindb.com/whitepaper/bigchaindb-whitepaper.pdf "BigchainDB 2.0, The Blockchain Database"
-[19]: https://www.tendermint.com/docs/introduction/what-is-tendermint.html#tendermint-vs-x "What is Tendermint?"
+[19]: https://www.tendermint.com/docs/introduction/what-is-tendermint.html "What is Tendermint?"
 [20]: http://docs.bigchaindb.com/en/latest/decentralized.html "How BigchainDB is Decentralized"
+[21]: https://docs.bigchaindb.com/en/latest/immutable.html "How BigchainDB is Immutable"
+[22]: https://www.bigchaindb.com/developers/guide/key-concepts-of-bigchaindb/ "Key concepts of BigchainDB"
+[23]: https://studio3t.com/knowledge-base/articles/sql-query/ "SQL Query"
+[24]: https://docs.bigchaindb.com/en/latest/query.html
