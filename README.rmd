@@ -115,15 +115,9 @@ Here are the steps involved:
 10. Bob finally sees $50 in his charity donation wallet.
 11. The winning miner who created the accepted block is awarded with transaction fee and/or a new coin.  
 
-## BLOCKCHAIN TYPES
-
-*Need writeup on the types of blockchain.*
-
 ## BLOCKCHAIN APPLICATIONS
 
-In the year 2017, Blockchain became the second most popular search word on Gartner's website, and Distributed Ledger Technology (DLT) will continue to gain utmost significance across many industries.
-Blockchain will help address several modern-day security concerns, including issues with contracts, identity, and fraud management. Blockchain-based lists will allow online retailers and financial organizations to conveniently vet their customers and fight against fraudulent activities.
-The following are top 20 real-world blockchain applications across the industry according to CoinSwitch desk.
+In 2018, the question ["What is Bitcoin"][30], was the most searched question on Google.  Blockchain's search popularity has declined slightly over the past few years, but interest still appears to remain high. The following example blockchain applications across the industry according to [CoinSwitch Desk][31].
 
 ### Cybersecurity
 
@@ -271,3 +265,5 @@ the project documentation is available in [BigChainDBProject_PythonDriver.pdf](.
 [27]: https://www.mongodb.com/download-center "MongoDB"
 [28]: https://mmonit.com/monit/ "Monit"
 [29]: http://www.allitebooks.com/cryptography-and-network-security-5th-edition/ "CRYPTOGRAPHY and NETWORK SECURITY PRINCIPLES AND PRACTICE FIFTH EDITION, pg. 94"
+[30]: https://trends.google.com/trends/yis/2018/US/e064b3e4-f943-4db4-aa43-411b724839a8/1554073800?hl=en-US&tz=300&sni=3&utm_campaign=yis_2018&utm_content=chart_e064b3e4-f943-4db4-aa43-411b724839a8&utm_medium=website&utm_source=Trends "See the top trending What is...? in United States for 2018, from Google Trends"
+[31]: https://coinswitch.co/news/20-blockchain-applications-across-industries-2018 "20 Real-world Blockchain Applications across Industries 2018"
