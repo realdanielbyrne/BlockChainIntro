@@ -104,10 +104,10 @@ To incentivize honest nodes to continuously find new blocks and to process trans
 Here are the steps involved:
 
 1. On a Blockchain, transactions are happening between different nodes on the network all the time. In our example, Alice initiate a transaction to Bob.
-2. Alice's wallet encrypt her coin with Bob's public key and signs the transaction with her private key.
+2. Alice's wallet encrypts her coin with Bob's public key and signs the transaction with her private key.
 3. The transaction will not be added to the Blockchain right away.  Instead it is added to pending transaction pool.
-4. Special nodes, called miners, pick up several transactions from the pool.
-5. Miners first validate all the transactions to see that all the transactions are fair and valid and does not contain any fraudulent transaction with problems like enough resources/fund in Alice wallet, duplicate transaction etc. (Validation rules are application specific.) These validation rules are called transactional consensus.
+4. Special nodes, called miners, pick up several transactions from the pool and combine them into a block.
+5. Miners first validate all the transactions. Validation rules are application specific. These validation rules are called transactional consensus.
 6. Once the transactions are validated, the miners will attempt to create a block of the transactions. This block contains a sequential ID, the transactions picked by the miner, a SHA256 Hash of all the values and a hash of the previous block.
 7. The Blockchain Consensus then requires that a miner resolves a computational-intense mathematical problem to sign the generated block before broadcasting it to the network.
 8. The other miners validate the solution of the problem and if validated accept the block.
@@ -195,11 +195,11 @@ BigchainDB is designed to be [decentralized][20] and distributed but yet synchro
 
 Ideally each node in a BigChainDB network is controlled by a different entity.  Even if the nodes are all within the same company, each node is better suited to be controlled by different divisions or different persons in the company.  As in life, the strength of a BigChainDB network comes from its diversity.  The greater the geographic, organizational or other types of diversity present in the network the more fault tolerant it will be.
 
-There is no supervisor node that has can override or supersede the authority of any other node.. All nodes are equivalent peers running the same version of software and performing the same set of actions.  
+There is no supervisor node that has can override or supersede the authority of any other node. All nodes are equivalent peers running the same version of software and performing the same set of actions.  
 
 A collection of nodes in a BigChainDB implementation is called a Consortium.  Consortium rules are set forth for each node to follow as a precondition for inclusion in the network, and to provide a tailored system of governance for the network.  These rules are flexible and consequently implementation specific.  For instance the rules for a B2B operation probably  should be different than the rules for an asset tracking system.
 
-As in traditional blockchain implementations like Bitcoin, BigchainDB relies on a consensus of the nodes agreeing on a new block before the new block will be committed to the cryptographic chain.  Therefore, if someone hacked into a node, and tried to commit compromising data to the chain, the other nodes would reject it.  A BigchainDB network can only be impacted if more than 1/3 of the nodes are compromised. If there is at least 2/3 consensus then the network will still allow a commit on the next block.  This also means that even if 1/3 is affected, the the data would at least be safe from tampering unless 2/3 of the nodes were compromised.
+As in traditional blockchain implementations like Bitcoin, BigchainDB relies on a consensus of the nodes agreeing on a new block before the new block will be committed to the cryptographic chain.  Therefore, if someone hacked into a node, and tried to commit compromising data to the chain, the other nodes would reject it.  A BigchainDB network can only be impacted if more than 1/3 of the nodes are compromised. If there is at least 2/3 consensus then the network will still allow a commit on the next block.  This also means that even if 1/3 is affected, the data would at least be safe from tampering unless 2/3 of the nodes were compromised.
 
 ### Transaction Immutability
 
@@ -207,7 +207,7 @@ Blockchains ledgers are generally considered immutable, unchanging over time.  T
 
 Blockchain immutability can be achieved in a number of ways, and some compromises over the original Bitcoin design needed to be made for the specific requirements of a database. For instance Bitcoin Then it uses a proof-of-work backed by a monetary incentive to make it very expensive for a hacker to try and surpass the honest nodes.  This proof of work method however is slow, too slow to be used by a database, and so BigchainDB does not use it.  
 
-[Tendermint][19] is a distributed Byzantine-fault tolerant state machine replication protocol.  It is tolerant to failure of up to 1/3 of the nodes, it is eventually consistent as every node will see the same transaction log, and will compute the same state in isolation. BigchainDB cryptographically signs to verify ownership and hashes to detect tampering each transaction. Then BigchaingDB uses Tendermint to replicate and secure the its cryptographic transaction logs across a peer to peer network.
+[Tendermint][19] is a distributed Byzantine-fault tolerant state machine replication protocol.  It is tolerant to failure of up to 1/3 of the nodes, it is eventually consistent as every node will see the same transaction log and will compute the same state in isolation. BigchainDB cryptographically signs to verify ownership and hashes to detect tampering each transaction. Then BigchaingDB uses Tendermint to replicate and secure the its cryptographic transaction logs across a peer to peer network.
 
 BigchainDB only exposes Create and Transfer API methods.  There is no concept of deleting or updating a record.  Even if the underlying MongoDB database in a node were to be modified with MongoDB native Update and Delete commands.  The hashes would then be violated, and the other nodes would not accept the changes.
 
