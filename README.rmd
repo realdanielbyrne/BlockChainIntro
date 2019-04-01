@@ -1,7 +1,6 @@
 ---
 title: "Blockchain Analysis"
-author: Daniel Byrne, Graduate Student, Southern Methodist University, Benjamin Wilke, Graduate Student,
-  Southern Methodist University, Brian Coari, Graduate Student, Southern Methodist
+author: Daniel Byrne, Graduate Student, Southern Methodist University, Benjamin Wilke, Graduate Student, Southern Methodist University, Brian Coari, Graduate Student, Southern Methodist
   University
 date: "March 21, 2019"
 output:
