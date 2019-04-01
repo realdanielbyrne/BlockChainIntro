@@ -105,11 +105,11 @@ Since the ledger is distributed amongst every participant in the network, both m
 
 To incentivize honest nodes to continuously find new blocks and to process transactions to stay ahead of dishonest nodes attempts at rewriting history, miners finding a new block are awarded with a new coin. By convention this coin is recorded as the first transaction in a new block.
 
-Here are the steps involved:
+An example Transaction
 
-1. On a Blockchain, transactions are happening between different nodes on the network all the time. In our example, Alice initiate a transaction to Bob.
+1. In our example, Alice initiate a transaction to Bob.
 2. Alice's wallet encrypts her coin with Bob's public key and signs the transaction with her private key.
-3. The transaction will not be added to the Blockchain right away.  Instead it is added to pending transaction pool.
+3. This transaction will be added to a pending transaction pool.
 4. Special nodes, called miners, pick up several transactions from the pool and combine them into a block.
 5. Miners first validate all the transactions. Validation rules are application specific. These validation rules are called transactional consensus.
 6. Once the transactions are validated, the miners will attempt to create a block of the transactions. This block contains a sequential ID, the transactions picked by the miner, a SHA256 Hash of all the values and a hash of the previous block.
@@ -187,6 +187,8 @@ BigchainDB Features :
 - Fast Commits
 - Sybil Tolerance
 
+![BigchainDB Features 32](./images/bigchaindbfeatures.png "BigchainDB Features")
+
 ### Decentralized Control
 
 BigchainDB is designed to be [decentralized][20] and distributed but yet synchronized, which makes it ideal for multi-organizational business networks, business to business transactions, or simply for ensuring redundancy and high availability. It also encourages organizations to come out from behind their firewalls and to share data.  BigChainDB is built upon a network of peer nodes, all of which contain an exact eventually consistent copy of the same database.  The beauty of this design is that there is no one single point of failure, and no one single point of control.
@@ -208,6 +210,8 @@ Blockchain immutability can be achieved in a number of ways, and some compromise
 [Tendermint][19] is a distributed Byzantine-fault tolerant state machine replication protocol.  It is tolerant to failure of up to 1/3 of the nodes, it is eventually consistent as every node will see the same transaction log and will compute the same state in isolation. BigchainDB cryptographically signs to verify ownership and hashes to detect tampering each transaction. Then BigchaingDB uses Tendermint to replicate and secure the its cryptographic transaction logs across a peer to peer network.
 
 BigchainDB only exposes Create and Transfer API methods.  There is no concept of deleting or updating a record.  Even if the underlying MongoDB database in a node were to be modified with MongoDB native Update and Delete commands.  The hashes would then be violated, and the other nodes would not accept the changes.
+
+![BigchainDB Simple Network Diagram 33](./images/bigchaindbnetworkdiagram.png)
 
 ### Fast Commits
 
@@ -235,8 +239,7 @@ We are fast approaching a time as a society in which ownership of an asset like 
 
 Our team has prepared a demonstration of a Simple BigchainDB network hosted on AWS.  In this demonstration we take some liberties and we do not follow the best practice of diversifying the nodes as they are all going to be hosted on the same provider, AWS, and obviously controlled by the same users, us.  However, these are reasonable simplifications for a development or demonstration environment.
 
-Details of the setup process are available in [BigChainDBProject_AWSImplementation.pdf](./BigchainDB/BigChainDBProject_AWSImplementation.pdf).  A IPython Juypter notebook,
-the project documentation is available in [BigChainDBProject_PythonDriver.pdf](./BigChainDBProject_PythonDriver.pdf).
+Details of the setup process are available in [BigChainDBProject_AWSImplementation.pdf](./BigchainDB/BigChainDBProject_AWSImplementation.pdf).  A IPython Juypter notebook, the project documentation is available in [BigChainDBProject_PythonDriver.pdf](./BigChainDBProject_PythonDriver.pdf).
 
 ## REFERENCES
 
@@ -271,3 +274,39 @@ the project documentation is available in [BigChainDBProject_PythonDriver.pdf](.
 [29]: http://www.allitebooks.com/cryptography-and-network-security-5th-edition/ "CRYPTOGRAPHY and NETWORK SECURITY PRINCIPLES AND PRACTICE FIFTH EDITION, pg. 94"
 [30]: https://trends.google.com/trends/yis/2018/US/e064b3e4-f943-4db4-aa43-411b724839a8/1554073800?hl=en-US&tz=300&sni=3&utm_campaign=yis_2018&utm_content=chart_e064b3e4-f943-4db4-aa43-411b724839a8&utm_medium=website&utm_source=Trends "See the top trending What is...? in United States for 2018, from Google Trends"
 [31]: https://coinswitch.co/news/20-blockchain-applications-across-industries-2018 "20 Real-world Blockchain Applications across Industries 2018"
+[32]: https://www.bigchaindb.com/features/ "BigchainDB Features"
+[33]: https://docs.bigchaindb.com/en/latest/_images/schemaDB.png "BigchainDB Network Diagram"
+
+1. https://blockgeeks.com/guides/what-is-blockchain-technology/ "Judd Bagley (2018 ,  Sep . ).  What is Blockchain Technology? A Step-by-Step Guide For Beginners. Blockgeeks."
+2. https://medium.com/blockchain-review/how-does-the-blockchain-work-for-dummies-explained-simply-9f94d386e093 "Collin Thompson 2016 Oct. How does the Blockchain Work? (Part 1). The Blockchain Review."
+3. https://blockchainhub.net/blockchains-and-distributed-ledger-technologies-in-general/ "Collin Thompson (2016 Oct.). Blockchains & Distributed Ledger Technologies. BlockchainHub."
+4. https://web.archive.org/web/20140226205104/http://origin-www.computer.org/csdl/mags/co/1977/06/01646525.pdf "Exhaustive Cryptanalysis of the NBS Data Encryption Standard"
+5. https://www.foo.be/docs/eff-des-cracker/book/crackingdessecre00elec.pdf "Electronic Frontier Foundation (1998), Cracking DES: Secrets of Encryption Research, Wiretap Politics, and Chip Design, Electronic Frontier Foundation, ISBN ISBN: 1-56592-520-3"
+6. https://www.cs.jhu.edu/~rubin/courses/sp03/papers/diffie.hellman.pdf "Diffie, Whitfield & Martin Hellman (Nov. 1976), "New Directions in Cryptography", IEEE Transactions on Information Theory IT-22: 644-654"
+7. http://# "It was created by IBM's (International Business Machines) Walter Tuchman (1997). "A brief history of the data encryption standard". Internet besieged: countering cyberspace scofflaws. ACM Press/Addison-Wesley Publishing Co. New York, NY, USA. pp. 275–280."
+8. https://ia801307.us.archive.org/33/items/AmericanCryptologyDuringtheColdWar1945-1989BookIII_RetrenchmentandReform1972-1980/American%20Cryptology%20During%20the%20Cold%20War%2C%201945-1989.%20Book%20III_%20Retrenchment%20and%20Reform%2C%201972-1980.pdf  "Thomas R. Johnson (2009-12-18). "American Cryptology during the Cold War, 1945-1989.Book III: Retrenchment and Reform, 1972-1980, page 232" (PDF)."
+9. http://www.toad.com/gnu/cfp.talk.txt "John Gilmore (March 1991), Privacy, Technology, and the Open Society"
+10. https://www.activism.net/cypherpunk/manifesto.html "A Cypherpunk's Manifesto"
+11. https://ieeexplore.ieee.org/document/1055638 "Diffie, Whitfield; Hellman, Martin E. (November 1976). "New Directions in Cryptography" (PDF). IEEE Transactions on Information Theory. 22 (6): 644–654. doi:10.1109/TIT.1976.1055638. Archived (PDF) from the original on 2014-11-29."
+12. https://patents.google.com/patent/US4200770 "Cryptographic apparatus and method"
+13. https://www.gchq.gov.uk/sites/default/files/document_files/CESG_Research_Report_No_3006_0.pdf "The Possibility of Secure Non-Secret Digital Encryption"
+14. http://en.citizendium.org/wiki/Cypherpunk/Citable_Version "Cypherpunk/Citable Version"
+15. https://cryptome.org/0001/assange-cpunks.htm "An Archive of Julian Assange's Cypherpunk Mailing List Posts"
+16. https://www.bigchaindb.com/ "BigchainDB"
+17. http://nakamotostudies.org/wp-content/uploads/2018/03/bitcoin.pdf "Bitcoin: A Peer-to-Peer Electronic Cash System"
+18. https://www.bigchaindb.com/whitepaper/bigchaindb-whitepaper.pdf "BigchainDB 2.0, The Blockchain Database"
+19. https://www.tendermint.com/docs/introduction/what-is-tendermint.html "What is Tendermint?"
+20. http://docs.bigchaindb.com/en/latest/decentralized.html "How BigchainDB is Decentralized"
+21. https://docs.bigchaindb.com/en/latest/immutable.html "How BigchainDB is Immutable"
+22. https://www.bigchaindb.com/developers/guide/key-concepts-of-bigchaindb/ "Key concepts of BigchainDB"
+23. https://studio3t.com/knowledge-base/articles/sql-query/ "SQL Query"
+24. https://docs.bigchaindb.com/en/latest/query.html "Querying BigchainDB"
+25. https://github.com/bigchaindb/bigchaindb-driver "bigchaindb-driver"
+26. https://www.python.org/ "Python"
+27. https://www.mongodb.com/download-center "MongoDB"
+28. https://mmonit.com/monit/ "Monit"
+29. http://www.allitebooks.com/cryptography-and-network-security-5th-edition/ "CRYPTOGRAPHY and NETWORK SECURITY PRINCIPLES AND PRACTICE FIFTH EDITION, pg. 94"
+30. https://trends.google.com/trends/yis/2018/US/e064b3e4-f943-4db4-aa43-411b724839a8/1554073800?hl=en-US&tz=300&sni=3&utm_campaign=yis_2018&utm_content=chart_e064b3e4-f943-4db4-aa43-411b724839a8&utm_medium=website&utm_source=Trends "See the top trending What is...? in United States for 2018, from Google Trends"
+31. https://coinswitch.co/news/20-blockchain-applications-across-industries-2018 "20 Real-world Blockchain Applications across Industries 2018"
+32. https://www.bigchaindb.com/features/ "BigchainDB Features"
+33. https://docs.bigchaindb.com/en/latest/_images/schemaDB.png "BigchainDB Network Diagram"
