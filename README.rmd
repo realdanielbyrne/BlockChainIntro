@@ -123,13 +123,11 @@ An example Transaction
 
 For the most part, when people talk about Blockchain they are talking about a Public Blockchain like Bitcoin or Ethereum. However, Public Blockchains are only one of three main types of Blockchain along with Federated and Private Blockchains. Here is a description of each type and their uses:
 
-1. Public: A Blockchain in which anyone can participate. Most popular form of Blockchain, but concerning to some in regards to speed and security. Though no real security concerns have been provided, certain industries do not trust that transactions in a public blockchain will be hidden forever and therefore shy away from them.
-2. Federated: A Blockchain that limits the participants to a group of companies. Most commonly used in finance when a little more privacy and speed is desired.
-3. Private: A Blockchain unique to one organization. Most scalable and fast, but the one with the most overhead. 
+1. [Public][3]: A Blockchain in which anyone can participate. This is the most popular form of Blockchain, but concerning to some in regards to speed and security. Though no real security concerns have been provided, certain industries do not trust that transactions in a public blockchain will be hidden forever and therefore shy away from them.
+2. [Federated][3]: A Blockchain that limits the participants to a group of companies. Most commonly used in finance when a little more privacy and speed is desired.
+3. [Private][3]: A Blockchain unique to one organization. Most scalable and fast, but the one with the most overhead.
 
 The value of Federated and Private Blockchains is highly questionable. Many believe that the infrastructure costs of a Blockchain database will outweigh the benefits, but only time will tell.
-
-[3]
 
 ## BLOCKCHAIN APPLICATIONS
 

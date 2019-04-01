@@ -119,6 +119,16 @@ An example Transaction
 10. Bob finally sees $50 in his charity donation wallet.
 11. The winning miner who created the accepted block is awarded with transaction fee and/or a new coin.  
 
+## BLOCKCHAIN TYPES
+
+For the most part, when people talk about Blockchain they are talking about a Public Blockchain like Bitcoin or Ethereum. However, Public Blockchains are only one of three main types of Blockchain along with Federated and Private Blockchains. Here is a description of each type and their uses:
+
+1. [Public][3]: A Blockchain in which anyone can participate. Most popular form of Blockchain, but concerning to some in regards to speed and security. Though no real security concerns have been provided, certain industries do not trust that transactions in a public blockchain will be hidden forever and therefore shy away from them.
+2. [Federated][3]: A Blockchain that limits the participants to a group of companies. Most commonly used in finance when a little more privacy and speed is desired.
+3. [Private][3]: A Blockchain unique to one organization. Most scalable and fast, but the one with the most overhead.
+
+The value of Federated and Private Blockchains is highly questionable. Many believe that the infrastructure costs of a Blockchain database will outweigh the benefits, but only time will tell.
+
 ## BLOCKCHAIN APPLICATIONS
 
 In 2018, the question ["What is Bitcoin"][30], was the most searched question on Google.  Blockchain's search popularity has declined slightly over the past few years, but interest still appears to remain high. The following example blockchain applications across the industry according to [CoinSwitch Desk][31].
