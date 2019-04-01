@@ -11,7 +11,11 @@ output:
 
 ## Abstract
 
-*Blockchain technology is increasingly being developed for use in a broad range of applications, from financial transactions, digital voting systems, identity management, and asset tracking.  The technology is robust, secure, flexible, and could one day bring about fundamental change in a whole host of common computer systems. The goal of this project is to provide a primer on Blockchain technology and an evaluation of an experimental Blockchain database.*
+*Blockchain technology is increasingly being developed for use in a broad range of applications, from financial transactions, digital voting systems, identity management, and asset tracking.  The technology is robust, secure, flexible, and could one day bring about fundamental change in a whole host of common computer systems.*
+
+*Digital encryption grew out of the need to keep government secrets private during and after World War II.  The US government and IBM developed DES, the first widely used digital encryption algorithm.  However, due to the subsequent government mandated secrecy around the implementation of DES, and the distrust of the academic community because of this, a movement was spawned that put a premium on individual privacy and decentralized control.  This movement brought together the top minds in encryption and spawned the technology we know of as blockchain today.*
+
+*This paper explores the genesis of encryption, its early adoption, and the government meddling which eventually spawned a movement which gave birth to the ideas behind blockchain.  It also closes with a demonstration of blockchain technology used in a novel way to refactor the traditional design paradigms of databases.*
 
 *Index Terms : Computer network management, Cooperative communication, Cryptographic protocols, Data transfer, Encryption, Distributed databases, Document handling, Fault tolerant control, Identity management systems, Information exchange, Internet, Network function virtualization, Network security, Peer-to-peer computing*
 
