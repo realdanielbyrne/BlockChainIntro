@@ -105,19 +105,18 @@ Since the ledger is distributed amongst every participant in the network, both m
 
 To incentivize honest nodes to continuously find new blocks and to process transactions to stay ahead of dishonest nodes attempts at rewriting history, miners finding a new block are awarded with a new coin. By convention this coin is recorded as the first transaction in a new block.
 
-An example Transaction
+Here are the steps involved:
 
-1. In our example, Alice initiate a transaction to Bob.
-2. Alice's wallet encrypts her coin with Bob's public key and signs the transaction with her private key.
-3. This transaction will be added to a pending transaction pool.
-4. Special nodes, called miners, pick up several transactions from the pool and combine them into a block.
-5. Miners first validate all the transactions. Validation rules are application specific. These validation rules are called transactional consensus.
-6. Once the transactions are validated, the miners will attempt to create a block of the transactions. This block contains a sequential ID, the transactions picked by the miner, a SHA256 Hash of all the values and a hash of the previous block.
-7. The Blockchain Consensus then requires that a miner resolves a computational-intense mathematical problem to sign the generated block before broadcasting it to the network.
-8. The other miners validate the solution of the problem and if validated accept the block.
-9. Once over 50% of the Miners on the blockchain network accepts the block, the block is added to the blockchain and distributed to all nodes on the network.
-10. Bob finally sees $50 in his charity donation wallet.
-11. The winning miner who created the accepted block is awarded with transaction fee and/or a new coin.  
+Alice’s wallet encrypts her coin with Bob’s public key and signs the transaction with her private key.
+The transaction will not be added to the Blockchain right away. Instead it is added to pending transaction pool.
+Special nodes, called miners, pick up several transactions from the pool and combine them into a block.
+Miners first validate all the transactions. Validation rules are application specific. These validation rules are called transactional consensus.
+Once the transactions are validated, the miners will attempt to create a block of the transactions. This block contains a sequential ID, the transactions picked by the miner, a SHA256 Hash of all the values and a hash of the previous block.
+The Blockchain Consensus then requires that a miner resolves a computational-intense mathematical problem to sign the generated block before broadcasting it to the network.
+The other miners validate the solution of the problem and if validated accept the block.
+Once over 50% of the Miners on the blockchain network accepts the block, the block is added to the blockchain and distributed to all nodes on the network.
+Bob finally sees $50 in his charity donation wallet.
+The winning miner who created the accepted block is awarded with transaction fee and/or a new coin. 
 
 ## BLOCKCHAIN TYPES
 
@@ -127,7 +126,7 @@ For the most part, when people talk about Blockchain they are talking about a Pu
 2. [Federated][3]: A Blockchain that limits the participants to a group of companies. Most commonly used in finance when a little more privacy and speed is desired.
 3. [Private][3]: A Blockchain unique to one organization. Most scalable and fast, but the one with the most overhead.
 
-The value of Federated and Private Blockchains is highly questionable. Many believe that the infrastructure costs of a Blockchain database will outweigh the benefits, but only time will tell.
+The value of Federated and Private Blockchains is highly questionable. Organizations that implement federated or private blockchains need to weigh the benefit against the overhead of the blockchain system.[3]
 
 ## BLOCKCHAIN APPLICATIONS
 
