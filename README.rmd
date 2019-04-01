@@ -2,7 +2,7 @@
 title: "Blockchain Analysis"
 author: Daniel Byrne, Graduate Student, Southern Methodist University, Benjamin Wilke, Graduate Student,
   Southern Methodist University, Brian Coari, Graduate Student, Southern Methodist
-  University, Yumei Bennett, Graduate Student, Southern Methodist University
+  University
 date: "March 21, 2019"
 output:
   word_document: 
@@ -131,59 +131,37 @@ The value of Federated and Private Blockchains is highly questionable. Many beli
 
 ## BLOCKCHAIN APPLICATIONS
 
-In 2018, the question ["What is Bitcoin"][30], was the most searched question on Google.  Blockchain's search popularity has declined slightly over the past few years, but interest still appears to remain high. The following example blockchain applications across the industry according to [CoinSwitch Desk][31].
+In 2018, the question ["What is Bitcoin"][30], was the most searched question on Google.  Blockchain's search popularity has declined slightly over the past few years, but interest still appears to remain high.
+
+The following are some of the most successful companies implementing blockchain across a broad cross section of industries according to [CoinSwitch Desk][31].
+
+### Enterprise
+
+- [GEM](https://enterprise.gem.co/): Gem is an Enterprise Blockchain Application involved with industries across the spectrum from tracking diseases on blockchain for the CDC to, tracking crypto investments, to building an operating system healthcare, GEMOS.
 
 ### Cybersecurity
 
-- Guardtime : a keyless signature which is currently used to secure the health records of one million Estonian citizens.
-- REMME : a decentralized authentication system which aims to replace logins and passwords with SSL certificates stored on a blockchain.
+- [REMME](https://remme.io/) : A peer to peer public key infrastructure platform for identity management.
 
 ### Healthcare
 
-- Gem : working with the Centre for Disease Control(CDC) to put disease outbreak data onto a blockchain.
-- Simply Vital Health : ConnectingCare which tracks the health progress of patients, and Health Nexus, which aims to provide decentralized blockchain patient records.
+- [Simply Vital Health](https://www.simplyvitalhealth.com/) : A HIPAA compliant heath care solutions provider creating blockchain based applications for patient tracking and electronic health records.
 
 ### Banking and Financial
 
-- Barclays : Barclays has launched a number of technological initiatives which involves tracking financial transactions, combating fraud and compliance.
-- Augur : Allows the creation of blockchain-based predictions markets for the trading of derivatives and other financial instruments in a decentralized ecosystem.
+- Barclays : Barclays has embarked on a number of blockchain implementations for finance and has even filed a few patents.  However their stance on blockchain is that it will simply [change the world][33] and that it will be ["a new operating system for the planet"][34].
 
 ### Manufacturing
 
-- Provenance : provide a blockchain-based provenance record of transparency within supply chains.
-- TransActivgrid : allowing members to locally produce and sell energy, with the goal of reducing costs involved in energy distribution.
-
-### Government
-
-- Dubai : 30 government departments formed a committee dedicated to investigating opportunities across health records, shipping, business registration and preventing the spread of conflict diamonds.
-- South Korea : Samsung is creating blockchain solutions for the South Korean government which will be put into use in public safety and transport applications.
+- [Provenance](https://www.provenance.org/technology) : A supply chain management software development company using blockchain to track assets through the manufacturing process.
 
 ### Charity
 
-- Bitgive : aims at providing greater transparency to charity donations and reduce operation overhead.
+- [Bitgive](https://www.provenance.org/technology) : Bitgive tracks donations from donor to on the ground implementation of the funds.  As a donor you can tracks your gifts and see the benefit that they do.
 
 ### Retail
 
-- OpenBazaar : a decentralized market where no middleman is involved in trading of goods and services.
-- Loyyal : universal blockchain-based framework which aims at allowing customers to combine trade and loyalty reward points in newer ways so that retailers can offer more sophisticated loyalty packages.
-
-### Real Estate
-
-- Ubiquity : a blockchain-driven system for tracking the complicated legal process which creates friction and expenses in real estate transfer.
-
-### Transportation and Tourism
-
-- Arcade City : An application which aims at beating Uber at their own game by moving ride sharing and car hiring onto the blockchain.
-- Webjet : an online travel portal, which is developing a blockchain solution to allow stock of empty hotel rooms to be efficiently tracked and traded.
-
-### Media
-
-- Kodak : developing a blockchain system for tracking intellectual property rights and payments to photographers.
-- Ujo Music : record and track royalties for musicians and allows them to create a record of ownership of their work.
-
-### Smart Contracts
-
-- Slock : an Ethereum based internet-of-things (IoT) platform, which is using this application so that people can rent anything from bicycles to apartments by unlocking a smart lock after both parties agreed on the terms of the contract.
+- [OpenBazaar](https://openbazaar.org/) : Buy and sell anything without the traditional middleman like Amazon, e-Bay, or consignment store in the middle.
 
 ## BIGCHAINDB
 
@@ -286,6 +264,8 @@ Details of the setup process are available in [BigChainDBProject_AWSImplementati
 [31]: https://coinswitch.co/news/20-blockchain-applications-across-industries-2018 "20 Real-world Blockchain Applications across Industries 2018"
 [32]: https://www.bigchaindb.com/features/ "BigchainDB Features"
 [33]: https://docs.bigchaindb.com/en/latest/_images/schemaDB.png "BigchainDB Network Diagram"
+[34]: https://www.barclayscorporate.com/insights/innovation/what-does-blockchain-do/ "What does blockchain do?"
+[35]: https://home.barclays/news/2017/02/blockchain-could-be-new-operating-system-for-the-planet/ "Why blockchain could be a new ‘operating system for the planet"
 
 1. https://blockgeeks.com/guides/what-is-blockchain-technology/ "Judd Bagley (2018 ,  Sep . ).  What is Blockchain Technology? A Step-by-Step Guide For Beginners. Blockgeeks."
 2. https://medium.com/blockchain-review/how-does-the-blockchain-work-for-dummies-explained-simply-9f94d386e093 "Collin Thompson 2016 Oct. How does the Blockchain Work? (Part 1). The Blockchain Review."
@@ -320,3 +300,5 @@ Details of the setup process are available in [BigChainDBProject_AWSImplementati
 31. https://coinswitch.co/news/20-blockchain-applications-across-industries-2018 "20 Real-world Blockchain Applications across Industries 2018"
 32. https://www.bigchaindb.com/features/ "BigchainDB Features"
 33. https://docs.bigchaindb.com/en/latest/_images/schemaDB.png "BigchainDB Network Diagram"
+34. https://www.barclayscorporate.com/insights/innovation/what-does-blockchain-do/ "What does blockchain do?"
+35. https://home.barclays/news/2017/02/blockchain-could-be-new-operating-system-for-the-planet/ "Why blockchain could be a new ‘operating system for the planet"
