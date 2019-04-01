@@ -105,18 +105,19 @@ Since the ledger is distributed amongst every participant in the network, both m
 
 To incentivize honest nodes to continuously find new blocks and to process transactions to stay ahead of dishonest nodes attempts at rewriting history, miners finding a new block are awarded with a new coin. By convention this coin is recorded as the first transaction in a new block.
 
-Here are the steps involved:
+Here is a sample transaction between Alice and Bob:
 
-Alice’s wallet encrypts her coin with Bob’s public key and signs the transaction with her private key.
-The transaction will not be added to the Blockchain right away. Instead it is added to pending transaction pool.
-Special nodes, called miners, pick up several transactions from the pool and combine them into a block.
-Miners first validate all the transactions. Validation rules are application specific. These validation rules are called transactional consensus.
-Once the transactions are validated, the miners will attempt to create a block of the transactions. This block contains a sequential ID, the transactions picked by the miner, a SHA256 Hash of all the values and a hash of the previous block.
-The Blockchain Consensus then requires that a miner resolves a computational-intense mathematical problem to sign the generated block before broadcasting it to the network.
-The other miners validate the solution of the problem and if validated accept the block.
-Once over 50% of the Miners on the blockchain network accepts the block, the block is added to the blockchain and distributed to all nodes on the network.
-Bob finally sees $50 in his charity donation wallet.
-The winning miner who created the accepted block is awarded with transaction fee and/or a new coin. 
+1. Alice initiates a transaction to Bob donating $50 to his charity.
+2. Alice’s wallet encrypts her coin with Bob’s public key and signs the transaction with her private key.
+3. The transaction will be added to the pending transaction pool along with other transactions on the chain.
+4. Miner nodes will then pick up several transactions from the pool and combine them into a block.
+5. Miners will then validate all the transactions with application specific rules.
+6. Once validated, miners will compete to find a SHA256 hash with a specific number of leading zeros.
+7. Once found, the winning miner will broadcast its result to the network.
+8. The other miners then validate the solution and if validated accept the block, and then move on to a new block.
+9. Once over 50% of the miners on the blockchain accepts the block, the block is added to the blockchain officially.
+10. Bob finally sees $50 in his charity donation wallet.
+11. The winning miner is awarded with transaction fee and/or a new Bitcoin.
 
 ## BLOCKCHAIN TYPES
 
@@ -126,7 +127,7 @@ For the most part, when people talk about Blockchain they are talking about a Pu
 2. [Federated][3]: A Blockchain that limits the participants to a group of companies. Most commonly used in finance when a little more privacy and speed is desired.
 3. [Private][3]: A Blockchain unique to one organization. Most scalable and fast, but the one with the most overhead.
 
-The value of Federated and Private Blockchains is highly questionable. Organizations that implement federated or private blockchains need to weigh the benefit against the overhead of the blockchain system.[3]
+The value of Federated and Private Blockchains is highly questionable. Organizations that implement federated or private blockchains need to weigh the benefit against the overhead of the blockchain system.
 
 ## BLOCKCHAIN APPLICATIONS
 
@@ -235,12 +236,12 @@ Details of the setup process are available in [BigChainDBProject_AWSImplementati
 [3]: https://blockchainhub.net/blockchains-and-distributed-ledger-technologies-in-general/ "Collin Thompson (2016 Oct.). Blockchains & Distributed Ledger Technologies. BlockchainHub."
 [4]: https://web.archive.org/web/20140226205104/http://origin-www.computer.org/csdl/mags/co/1977/06/01646525.pdf "Exhaustive Cryptanalysis of the NBS Data Encryption Standard"
 [5]: https://www.foo.be/docs/eff-des-cracker/book/crackingdessecre00elec.pdf "Electronic Frontier Foundation (1998), Cracking DES: Secrets of Encryption Research, Wiretap Politics, and Chip Design, Electronic Frontier Foundation, ISBN ISBN: 1-56592-520-3"
-[6]: https://www.cs.jhu.edu/~rubin/courses/sp03/papers/diffie.hellman.pdf "Diffie, Whitfield & Martin Hellman (Nov. 1976), "New Directions in Cryptography", IEEE Transactions on Information Theory IT-22: 644-654"
-[7]: http://# "It was created by IBM's (International Business Machines) Walter Tuchman (1997). "A brief history of the data encryption standard". Internet besieged: countering cyberspace scofflaws. ACM Press/Addison-Wesley Publishing Co. New York, NY, USA. pp. 275–280."
-[8]: https://ia801307.us.archive.org/33/items/AmericanCryptologyDuringtheColdWar1945-1989BookIII_RetrenchmentandReform1972-1980/American%20Cryptology%20During%20the%20Cold%20War%2C%201945-1989.%20Book%20III_%20Retrenchment%20and%20Reform%2C%201972-1980.pdf  "Thomas R. Johnson (2009-12-18). "American Cryptology during the Cold War, 1945-1989.Book III: Retrenchment and Reform, 1972-1980, page 232" (PDF)."
+[6]: https://www.cs.jhu.edu/~rubin/courses/sp03/papers/diffie.hellman.pdf "Diffie, Whitfield & Martin Hellman (Nov. 1976), 'New Directions in Cryptography', IEEE Transactions on Information Theory IT-22: 644-654"
+[7]: http://# "It was created by IBM's (International Business Machines) Walter Tuchman (1997). 'A brief history of the data encryption standard'. Internet besieged: countering cyberspace scofflaws. ACM Press/Addison-Wesley Publishing Co. New York, NY, USA. pp. 275–280."
+[8]: https://ia801307.us.archive.org/33/items/AmericanCryptologyDuringtheColdWar1945-1989BookIII_RetrenchmentandReform1972-1980/American%20Cryptology%20During%20the%20Cold%20War%2C%201945-1989.%20Book%20III_%20Retrenchment%20and%20Reform%2C%201972-1980.pdf  "Thomas R. Johnson (2009-12-18). 'American Cryptology during the Cold War, 1945-1989.Book III: Retrenchment and Reform, 1972-1980, page 232'"
 [9]: http://www.toad.com/gnu/cfp.talk.txt "John Gilmore (March 1991), Privacy, Technology, and the Open Society"
 [10]: https://www.activism.net/cypherpunk/manifesto.html "A Cypherpunk's Manifesto"
-[11]: https://ieeexplore.ieee.org/document/1055638 "Diffie, Whitfield; Hellman, Martin E. (November 1976). "New Directions in Cryptography" (PDF). IEEE Transactions on Information Theory. 22 (6): 644–654. doi:10.1109/TIT.1976.1055638. Archived (PDF) from the original on 2014-11-29."
+[11]: https://ieeexplore.ieee.org/document/1055638 "Diffie, Whitfield; Hellman, Martin E. (November 1976). 'New Directions in Cryptography'. IEEE Transactions on Information Theory. 22 (6): 644–654. doi:10.1109/TIT.1976.1055638. Archived (PDF) from the original on 2014-11-29."
 [12]: https://patents.google.com/patent/US4200770 "Cryptographic apparatus and method"
 [13]: https://www.gchq.gov.uk/sites/default/files/document_files/CESG_Research_Report_No_3006_0.pdf "The Possibility of Secure Non-Secret Digital Encryption"
 [14]: http://en.citizendium.org/wiki/Cypherpunk/Citable_Version "Cypherpunk/Citable Version"
@@ -265,39 +266,3 @@ Details of the setup process are available in [BigChainDBProject_AWSImplementati
 [33]: https://docs.bigchaindb.com/en/latest/_images/schemaDB.png "BigchainDB Network Diagram"
 [34]: https://www.barclayscorporate.com/insights/innovation/what-does-blockchain-do/ "What does blockchain do?"
 [35]: https://home.barclays/news/2017/02/blockchain-could-be-new-operating-system-for-the-planet/ "Why blockchain could be a new ‘operating system for the planet"
-
-1. https://blockgeeks.com/guides/what-is-blockchain-technology/ "Judd Bagley (2018 ,  Sep . ).  What is Blockchain Technology? A Step-by-Step Guide For Beginners. Blockgeeks."
-2. https://medium.com/blockchain-review/how-does-the-blockchain-work-for-dummies-explained-simply-9f94d386e093 "Collin Thompson 2016 Oct. How does the Blockchain Work? (Part 1). The Blockchain Review."
-3. https://blockchainhub.net/blockchains-and-distributed-ledger-technologies-in-general/ "Collin Thompson (2016 Oct.). Blockchains & Distributed Ledger Technologies. BlockchainHub."
-4. https://web.archive.org/web/20140226205104/http://origin-www.computer.org/csdl/mags/co/1977/06/01646525.pdf "Exhaustive Cryptanalysis of the NBS Data Encryption Standard"
-5. https://www.foo.be/docs/eff-des-cracker/book/crackingdessecre00elec.pdf "Electronic Frontier Foundation (1998), Cracking DES: Secrets of Encryption Research, Wiretap Politics, and Chip Design, Electronic Frontier Foundation, ISBN ISBN: 1-56592-520-3"
-6. https://www.cs.jhu.edu/~rubin/courses/sp03/papers/diffie.hellman.pdf "Diffie, Whitfield & Martin Hellman (Nov. 1976), "New Directions in Cryptography", IEEE Transactions on Information Theory IT-22: 644-654"
-7. http://# "It was created by IBM's (International Business Machines) Walter Tuchman (1997). "A brief history of the data encryption standard". Internet besieged: countering cyberspace scofflaws. ACM Press/Addison-Wesley Publishing Co. New York, NY, USA. pp. 275–280."
-8. https://ia801307.us.archive.org/33/items/AmericanCryptologyDuringtheColdWar1945-1989BookIII_RetrenchmentandReform1972-1980/American%20Cryptology%20During%20the%20Cold%20War%2C%201945-1989.%20Book%20III_%20Retrenchment%20and%20Reform%2C%201972-1980.pdf  "Thomas R. Johnson (2009-12-18). "American Cryptology during the Cold War, 1945-1989.Book III: Retrenchment and Reform, 1972-1980, page 232" (PDF)."
-9. http://www.toad.com/gnu/cfp.talk.txt "John Gilmore (March 1991), Privacy, Technology, and the Open Society"
-10. https://www.activism.net/cypherpunk/manifesto.html "A Cypherpunk's Manifesto"
-11. https://ieeexplore.ieee.org/document/1055638 "Diffie, Whitfield; Hellman, Martin E. (November 1976). "New Directions in Cryptography" (PDF). IEEE Transactions on Information Theory. 22 (6): 644–654. doi:10.1109/TIT.1976.1055638. Archived (PDF) from the original on 2014-11-29."
-12. https://patents.google.com/patent/US4200770 "Cryptographic apparatus and method"
-13. https://www.gchq.gov.uk/sites/default/files/document_files/CESG_Research_Report_No_3006_0.pdf "The Possibility of Secure Non-Secret Digital Encryption"
-14. http://en.citizendium.org/wiki/Cypherpunk/Citable_Version "Cypherpunk/Citable Version"
-15. https://cryptome.org/0001/assange-cpunks.htm "An Archive of Julian Assange's Cypherpunk Mailing List Posts"
-16. https://www.bigchaindb.com/ "BigchainDB"
-17. http://nakamotostudies.org/wp-content/uploads/2018/03/bitcoin.pdf "Bitcoin: A Peer-to-Peer Electronic Cash System"
-18. https://www.bigchaindb.com/whitepaper/bigchaindb-whitepaper.pdf "BigchainDB 2.0, The Blockchain Database"
-19. https://www.tendermint.com/docs/introduction/what-is-tendermint.html "What is Tendermint?"
-20. http://docs.bigchaindb.com/en/latest/decentralized.html "How BigchainDB is Decentralized"
-21. https://docs.bigchaindb.com/en/latest/immutable.html "How BigchainDB is Immutable"
-22. https://www.bigchaindb.com/developers/guide/key-concepts-of-bigchaindb/ "Key concepts of BigchainDB"
-23. https://studio3t.com/knowledge-base/articles/sql-query/ "SQL Query"
-24. https://docs.bigchaindb.com/en/latest/query.html "Querying BigchainDB"
-25. https://github.com/bigchaindb/bigchaindb-driver "bigchaindb-driver"
-26. https://www.python.org/ "Python"
-27. https://www.mongodb.com/download-center "MongoDB"
-28. https://mmonit.com/monit/ "Monit"
-29. http://www.allitebooks.com/cryptography-and-network-security-5th-edition/ "CRYPTOGRAPHY and NETWORK SECURITY PRINCIPLES AND PRACTICE FIFTH EDITION, pg. 94"
-30. https://trends.google.com/trends/yis/2018/US/e064b3e4-f943-4db4-aa43-411b724839a8/1554073800?hl=en-US&tz=300&sni=3&utm_campaign=yis_2018&utm_content=chart_e064b3e4-f943-4db4-aa43-411b724839a8&utm_medium=website&utm_source=Trends "See the top trending What is...? in United States for 2018, from Google Trends"
-31. https://coinswitch.co/news/20-blockchain-applications-across-industries-2018 "20 Real-world Blockchain Applications across Industries 2018"
-32. https://www.bigchaindb.com/features/ "BigchainDB Features"
-33. https://docs.bigchaindb.com/en/latest/_images/schemaDB.png "BigchainDB Network Diagram"
-34. https://www.barclayscorporate.com/insights/innovation/what-does-blockchain-do/ "What does blockchain do?"
-35. https://home.barclays/news/2017/02/blockchain-could-be-new-operating-system-for-the-planet/ "Why blockchain could be a new ‘operating system for the planet"
