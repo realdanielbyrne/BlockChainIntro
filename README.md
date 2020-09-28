@@ -1,12 +1,9 @@
 ---
-title: "Blockchain Analysis"
-author: Daniel Byrne, Graduate Student, Southern Methodist University, Benjamin Wilke, Graduate Student,
+title: "A History and Analysis of Blockchain"
+authors: Daniel Byrne, Graduate Student, Southern Methodist University, Benjamin Wilke, Graduate Student,
   Southern Methodist University, Brian Coari, Graduate Student, Southern Methodist
   University
 date: "March 21, 2019"
-output:
-  word_document: 
-    keep_md: TRUE
 ---
 
 ## Abstract
@@ -29,7 +26,7 @@ This paper will explore the distributed ledger technology known as Blockchain. I
 
 ### Early Cryptography
 
-Until about the 1970s, cryptography was mainly the purview of state actors. However, in the 70s, two publications brought cryptography into the public eye the US Government's DES,the Data Encryption Standard, and Whitfield Diffie & Martin Hellman's publication on [public key cryptography][6].
+Until about the 1970s, cryptography was mainly the purview of state actors. However, in the 70s, two publications brought cryptography into the public eye the US Government's DES, the Data Encryption Standard, and Whitfield Diffie & Martin Hellman's publication on [public key cryptography][6].
 
 ### DES
 
